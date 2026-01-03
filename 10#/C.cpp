@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+int InputNum(string Hl)
+{
+    int Number = 0;
+    cout << Hl;
+    cin >> Number;
+    return Number;
+}
+
+bool CheckLeapYear(short Year)
+{
+    return ((Year % 4 == 0) && (Year % 100 != 0)) || ((Year % 400 == 0));
+}
+
+short MonthDayInYear(short Month)
+{
+    short arr[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+    return arr[Month-1];
+}
+
+short MonthInYear(short Year, short Month)
+{
+    if (Month < 1 || Month > 12)
+        return 0;
+    if (Month == 2) return (CheckLeapYear(Year) ? 29 : 28);
+    return MonthDayInYear(Month);
+}
+
+short CalculatingTheDaysOfPatience(short Year,short Month,short Day)
+{
+    short YDay = (CheckLeapYear(Year) ? 366 : 365);
+    short MDay = MonthInYear(Year,Month) - Day;
+    for (short i = Month+1;i <= 12;i++) MDay += MonthInYear(Year,i);
+    return YDay - MDay;
+}
+
+int main()
+{
+    short Year = InputNum("Year: ");
+    short Month = InputNum("Month: ");
+    short Day = InputNum("Day: ");
+
+    cout << "Calculating the days of patience: " << CalculatingTheDaysOfPatience(Year,Month,Day);
+}
