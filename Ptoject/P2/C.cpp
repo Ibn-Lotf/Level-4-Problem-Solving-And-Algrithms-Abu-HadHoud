@@ -126,6 +126,7 @@ vector <sClient> SaveCleintsDataToFile(string FileName, vector <sClient> vClient
 
 void ShowEndScreen()
 {
+    system("cls");
     cout << "\n-----------------------------------\n";
     cout << "\tProgram Ends :-)";
     cout << "\n-----------------------------------\n";
@@ -207,7 +208,7 @@ e100 = 4,e200 = 5,e250 = 6,e500 = 7,e700 = 8,e1000 = 9,e10000 = 10};
 
 void QuickWithDraw(bool Erorr = false);
 
-void WithDraw(enQuickWithDraw Quick,int Many = 0)
+void WithDraw(enQuickWithDraw Quick)
 {
     switch (Quick)
     {
