@@ -168,7 +168,7 @@ int ActualVacationDays(stDate Date1,stDate Date2)
 
 bool CheckDayOfMonthEnd(short Day,short Month,short Year)
 {
-    return  Day == MonthDayInYear(Year,Month);
+    return  Day == MonthInYear(Year,Month);
 }
 
 bool CheckMonthOfYearEnd(short Month)
